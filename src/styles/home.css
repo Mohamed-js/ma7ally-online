@@ -1,0 +1,8 @@
+.cover {
+  height: 100vh;
+  background: linear-gradient(to left, #eeb462, #dc8665);
+}
+
+.header {
+  font-size: 70px;
+}
