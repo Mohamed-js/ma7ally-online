@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/home.css';
 import trial from '../images/trial.png';
 import limited from '../images/limited.png';
 import hero from '../images/hero.png';
 
 const Home = () => {
+  // console.log(JSON.parse(sessionStorage.getItem('Ma7ally-token')));
   return (
     <div>
       <div className="cover bg-primary flex-col justify-center">
@@ -15,7 +17,9 @@ const Home = () => {
           It's time to grow up your business with us.
         </h3>
         <div className="join-now flex-row justify-center m-3">
-          <button className="p-2 btn bg-tertiary primary">Join now!</button>
+          <Link className="p-2 btn bg-tertiary primary" to="/join-us">
+            Join now!
+          </Link>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
@@ -55,7 +59,9 @@ const Home = () => {
           </ul>
           <h3 className="price text-center m-2">Free</h3>
           <div className="join-now flex-row justify-center">
-            <button className="p-2 btn bg-tertiary primary">Join now!</button>
+            <Link className="p-2 btn bg-tertiary primary" to="/join-us">
+              Join now!
+            </Link>
           </div>
         </div>
 
@@ -71,7 +77,9 @@ const Home = () => {
           </ul>
           <h3 className="price text-center m-2">12$</h3>
           <div className="join-now flex-row justify-center">
-            <button className="p-2 btn bg-tertiary primary">Join now!</button>
+            <Link className="p-2 btn bg-tertiary primary" to="/join-us">
+              Join now!
+            </Link>
           </div>
         </div>
 
@@ -87,7 +95,9 @@ const Home = () => {
           </ul>
           <h3 className="price text-center m-2">20$</h3>
           <div className="join-now flex-row justify-center">
-            <button className="p-2 btn bg-tertiary primary">Join now!</button>
+            <Link className="p-2 btn bg-tertiary primary" to="/join-us">
+              Join now!
+            </Link>
           </div>
         </div>
       </div>

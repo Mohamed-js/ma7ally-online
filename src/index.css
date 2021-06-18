@@ -11,6 +11,10 @@ body {
   color: #370640;
 }
 
+a {
+  text-decoration: none;
+}
+
 .bg-gradient {
   background: linear-gradient(to left, #5e3d71, #370640);
 }
@@ -37,6 +41,10 @@ body {
 
 .white {
   color: white;
+}
+
+.bg-white {
+  background-color: white;
 }
 
 .primary {
@@ -82,6 +90,25 @@ body {
 .full-img {
   width: 100%;
   height: 100%;
+}
+
+.input {
+  border: none;
+  box-shadow: grey 1px 1px 5px;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 3px;
+}
+
+.alert-bad {
+  background-color: rgba(255, 105, 105, 0.5);
+  color: red;
+  border: red solid 1px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 2px;
 }
 
 .p-1 {
