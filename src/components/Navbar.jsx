@@ -6,7 +6,7 @@ const Navbar = () => {
       <Link className="btn bg-secondary p-2" to="/join-us">
         Join Us
       </Link>
-      <Link className="btn bg-transparent secondary p-2" to="/join-us">
+      <Link className="btn bg-transparent secondary p-2" to="/login">
         Login
       </Link>
     </nav>

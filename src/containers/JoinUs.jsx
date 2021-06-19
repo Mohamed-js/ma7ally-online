@@ -17,9 +17,11 @@ const JoinUs = () => {
     btn.style.color = '#370640';
     btn.value = 'Wait...';
   };
+
   const handleChange = (e) => {
     setCredits({ ...credits, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFailure();
