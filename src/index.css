@@ -91,6 +91,8 @@ a {
 .full-img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .input {
@@ -170,4 +172,12 @@ a {
 
 .upload {
   display: none;
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: #b3b3b3 1px 1px 10px;
 }

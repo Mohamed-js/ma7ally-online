@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const baseURL = 'http://localhost:3000/api/v1';
 
 export const signup = async (credits) => {
@@ -34,28 +32,26 @@ export const showTrader = async (token) => {
   return respond;
 };
 
-// export const changeStoreImage = async (token, image) => {
-//   const fd = new FormData();
-//   fd.append('image', image, image.name);
-//   console.log(fd);
-//   const respond = await fetch(`${baseURL}/traders/1`, {
-//     headers: { 'Content-Type': 'application/json', Authorization: token },
-//     method: 'PUT',
-//     body: JSON.stringify({ image: image.name }),
-//   })
-//     .then((res) => res.json())
-//     .then((data) => data);
-//   return respond;
-// };
-
 export const changeStoreImage = async (token, image) => {
   const fd = new FormData();
-  fd.append('image', image, image.name);
-  axios
-    .put(`${baseURL}/traders/1`, fd, {
-      headers: {
-        Authorization: token,
-      },
-    })
-    .then((res) => console.log(res));
+  fd.append('file', image);
+  fd.append('upload_preset', 'ma7ally');
+
+  const res = await fetch(
+    'https://api.cloudinary.com/v1_1/atefcloud/image/upload',
+    {
+      method: 'POST',
+      body: fd,
+    }
+  );
+
+  const file = await res.json();
+  const respond = await fetch(`${baseURL}/traders/1`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    body: JSON.stringify({ image: file.url }),
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
 };
