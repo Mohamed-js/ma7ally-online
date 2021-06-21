@@ -6,7 +6,6 @@ import limited from '../images/limited.png';
 import hero from '../images/hero.png';
 
 const Home = () => {
-  // console.log(JSON.parse(sessionStorage.getItem('Ma7ally-token')));
   return (
     <div>
       <div className="cover bg-primary flex-col justify-center">
@@ -24,7 +23,7 @@ const Home = () => {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
             fill="#0099ff"
-            fill-opacity="1"
+            fillOpacity="1"
             d="M0,288L48,261.3C96,235,192,181,288,144C384,107,480,85,576,64C672,43,768,21,864,37.3C960,53,1056,107,1152,122.7C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
       </div>

@@ -23,7 +23,7 @@ export const signin = async (credits) => {
 };
 
 export const showTrader = async (token) => {
-  const respond = await fetch(`${baseURL}/traders/1`, {
+  const respond = await fetch(`${baseURL}/trader`, {
     headers: { 'Content-Type': 'application/json', Authorization: token },
     method: 'GET',
   })
@@ -50,6 +50,37 @@ export const changeStoreImage = async (token, image) => {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json', Authorization: token },
     body: JSON.stringify({ image: file.url }),
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
+};
+
+export const showTraderOrders = async (token) => {
+  const respond = await fetch(`${baseURL}/orders`, {
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'GET',
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
+};
+
+export const showTraderItems = async (token) => {
+  const respond = await fetch(`${baseURL}/traders/1`, {
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'GET',
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
+};
+
+export const AddNewItem = async (token, item) => {
+  const respond = await fetch(`${baseURL}/items`, {
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'POST',
+    body: JSON.stringify({ Item: item }),
   })
     .then((res) => res.json())
     .then((data) => data);

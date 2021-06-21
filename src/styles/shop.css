@@ -1,0 +1,28 @@
+.grid.items {
+  grid-column-gap: 20px;
+}
+
+.item-card {
+  min-height: 220px;
+  box-shadow: grey 1px 1px 7px;
+  border-radius: 3px;
+}
+
+.item-name {
+  padding: 3px;
+  padding-bottom: 10px;
+}
+
+.item-img {
+  height: 120px;
+}
+
+.item-img img {
+  object-fit: contain;
+  max-height: 120px;
+}
+
+.size {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

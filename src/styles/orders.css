@@ -1,0 +1,28 @@
+.orders {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 8px;
+}
+
+.order {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  min-height: 20px;
+  border: 1px #370640 solid;
+  background-color: #ffdfb4;
+}
+
+.col {
+  border-bottom: 1px #370640 solid;
+  border-right: 1px #370640 solid;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  min-height: 25px;
+}
+
+.image {
+  max-width: 100px;
+  max-height: 100px;
+  border: none;
+}

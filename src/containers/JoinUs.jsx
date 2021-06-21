@@ -6,9 +6,9 @@ const JoinUs = () => {
   const history = useHistory();
   const [credits, setCredits] = useState();
   const [failure, setFailure] = useState();
-  const user = JSON.parse(sessionStorage.getItem('current_user'));
+  const user = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
   if (user) {
-    history.push('/home');
+    history.push('/dashboard');
   }
   const handleClick = () => {
     const btn = document.getElementById('signup');
