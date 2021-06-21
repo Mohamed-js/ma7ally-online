@@ -11,6 +11,8 @@
 .item-name {
   padding: 3px;
   padding-bottom: 10px;
+  height: 55px;
+  max-height: 55px;
 }
 
 .item-img {

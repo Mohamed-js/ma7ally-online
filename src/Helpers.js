@@ -23,7 +23,7 @@ export const signin = async (credits) => {
 };
 
 export const showTrader = async (token) => {
-  const respond = await fetch(`${baseURL}/trader`, {
+  const respond = await fetch(`${baseURL}/traders/1`, {
     headers: { 'Content-Type': 'application/json', Authorization: token },
     method: 'GET',
   })
@@ -67,7 +67,7 @@ export const showTraderOrders = async (token) => {
 };
 
 export const showTraderItems = async (token) => {
-  const respond = await fetch(`${baseURL}/traders/1`, {
+  const respond = await fetch(`${baseURL}/trader-items`, {
     headers: { 'Content-Type': 'application/json', Authorization: token },
     method: 'GET',
   })
@@ -76,11 +76,35 @@ export const showTraderItems = async (token) => {
   return respond;
 };
 
-export const AddNewItem = async (token, item) => {
+export const AddNewItem = async (token, item, image) => {
+  const fd = new FormData();
+  fd.append('file', image);
+  fd.append('upload_preset', 'ma7ally');
+
+  const res = await fetch(
+    'https://api.cloudinary.com/v1_1/atefcloud/image/upload',
+    {
+      method: 'POST',
+      body: fd,
+    }
+  );
+  const file = await res.json();
+  // Image is uploaded
+  const itemWithImage = { ...item, image_data: file.url };
   const respond = await fetch(`${baseURL}/items`, {
     headers: { 'Content-Type': 'application/json', Authorization: token },
     method: 'POST',
-    body: JSON.stringify({ Item: item }),
+    body: JSON.stringify({ item: itemWithImage }),
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
+};
+
+export const showTraderCategories = async (token) => {
+  const respond = await fetch(`${baseURL}/trader-categories`, {
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'GET',
   })
     .then((res) => res.json())
     .then((data) => data);

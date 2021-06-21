@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { AddNewItem } from '../Helpers';
+import { showTraderCategories, AddNewItem } from '../Helpers';
 
 const NewItem = () => {
   const history = useHistory();
   const [item, setItem] = useState();
+  const [categories, setCategories] = useState();
   const [failure, setFailure] = useState();
   const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
 
+  useEffect(() => {
+    showTraderCategories(trader_token).then((categories) =>
+      setCategories(categories)
+    );
+  }, [trader_token]);
+
   const handleChange = (e) => {
     setItem({ ...item, [e.target.name]: e.target.value });
-    console.log(item);
   };
 
   const handleClick = () => {
@@ -23,9 +29,11 @@ const NewItem = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const imageInput = document.getElementById('image');
+    const image = imageInput.files[0];
     setFailure('');
     handleClick();
-    const respond = await AddNewItem(trader_token, item);
+    const respond = await AddNewItem(trader_token, item, image);
     if (respond && respond.failure) {
       const btn = document.getElementById('login');
       btn.disabled = false;
@@ -34,7 +42,7 @@ const NewItem = () => {
     }
     setFailure('');
 
-    return history.push('/dashboard');
+    return history.push('/shop');
   };
 
   return (
@@ -76,8 +84,14 @@ const NewItem = () => {
             type="text"
             className="name form-input">
             <option value=""></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
+            {categories &&
+              categories.map((category) => {
+                return (
+                  <option key={category.id} value={category.id}>
+                    {category.name.toUpperCase()}
+                  </option>
+                );
+              })}
           </select>
         </div>
         <div className="form-group p-2">
@@ -110,9 +124,9 @@ const NewItem = () => {
         <div className="form-group p-2">
           <p>Image</p>
           <input
-            onChange={handleChange}
+            id="image"
             name="image_data"
-            type="text"
+            type="file"
             className="name form-input"
           />
         </div>
