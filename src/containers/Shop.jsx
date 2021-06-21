@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ItemCard from '../components/ItemCard';
 import { showTraderItems } from '../Helpers';
 import '../styles/shop.css';
 
@@ -22,7 +23,7 @@ const Shop = () => {
         </Link>
         {items && items.count && (
           <p className="btn p-1 m-2 primary">
-            Items count:{' '}
+            Items count:
             <span className="btn p-1 m-2 secondary">{items.count}</span>
           </p>
         )}
@@ -30,24 +31,7 @@ const Shop = () => {
 
       <div className="grid items p-2">
         {items &&
-          items.items.map((item) => (
-            <div className="item-card p-1 text-center" key={item.id}>
-              <p className="item-name">{item.name}</p>
-              <div className="item-img text-center">
-                <img src={item.image_data} alt="Item" className="full-img" />
-              </div>
-              <div className="size flex-row justify-between m-1">
-                <p>
-                  {item.size} {item.unit}
-                </p>
-                <span className="secondary">|</span>
-                <p>{item.quantity} Pieces</p>
-              </div>
-              <p className="price m-1 secondary">
-                {item.price} <span className="primary">EGP</span>
-              </p>
-            </div>
-          ))}
+          items.items.map((item) => <ItemCard key={item.id} item={item} />)}
       </div>
     </div>
   );

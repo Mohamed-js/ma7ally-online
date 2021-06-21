@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <div className="cover bg-primary flex-col justify-center">
-        <h1 className="header secondary text-center tertiary">
+        <h1 className="header light-shadow secondary text-center tertiary">
           Ma7ally Online
         </h1>
         <h3 className="headline text-center secondary">

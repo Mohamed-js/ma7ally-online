@@ -33,10 +33,10 @@ const Profile = () => {
           <h1 className="secondary header">{trader.storename}</h1>
           <div className="profile-avatar m-4">
             {trader.image_data && (
-              <img className="full-img" src={trader.image_data} alt="Profile" />
+              <img className="full-img fit-cover" src={trader.image_data} alt="Profile" />
             )}
             {!trader.image_data && (
-              <img className="full-img" src={prof} alt="Profile" />
+              <img className="full-img fit-cover" src={prof} alt="Profile" />
             )}
           </div>
 

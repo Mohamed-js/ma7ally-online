@@ -110,3 +110,13 @@ export const showTraderCategories = async (token) => {
     .then((data) => data);
   return respond;
 };
+
+export const showItem = async (token, itemId) => {
+  const respond = await fetch(`${baseURL}/items/${itemId}`, {
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'GET',
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
+};

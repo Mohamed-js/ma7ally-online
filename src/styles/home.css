@@ -5,6 +5,10 @@
   position: relative;
 }
 
+.light-shadow {
+  text-shadow: #00ee9f 3px 1px 8px;
+}
+
 .header {
   font-size: 60px;
 }

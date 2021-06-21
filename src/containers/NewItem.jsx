@@ -41,7 +41,6 @@ const NewItem = () => {
       return setFailure(respond.failure);
     }
     setFailure('');
-
     return history.push('/shop');
   };
 

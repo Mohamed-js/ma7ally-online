@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Dashboard from './containers/Dashboard.jsx';
 import Home from './containers/Home.jsx';
+import ItemShow from './containers/ItemShow.jsx';
 import JoinUs from './containers/JoinUs.jsx';
 import Login from './containers/Login.jsx';
 import NewItem from './containers/NewItem.jsx';
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/statistics" component={Statistics} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/new-item" component={NewItem} />
+          <Route exact path="/shop/item/:id" component={ItemShow} />
         </Switch>
       </Router>
     </div>
