@@ -130,3 +130,14 @@ export const deleteTraderItem = async (token, itemId) => {
     .then((data) => data);
   return respond;
 };
+
+export const editTraderItem = async (token, itemId, item) => {
+  const respond = await fetch(`${baseURL}/items/${itemId}`, {
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'PATCH',
+    body: JSON.stringify({ item: item }),
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
+};

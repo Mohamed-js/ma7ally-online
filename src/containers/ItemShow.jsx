@@ -11,14 +11,18 @@ const ItemShow = () => {
   const [item, setItem] = useState();
   const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
 
-  const handleDelete = () => {
-    deleteTraderItem(trader_token, itemId.id).then((res) => console.log(res));
-    history.push('../');
-  };
-
   useEffect(() => {
     showItem(trader_token, itemId.id).then((item) => setItem(item));
   }, []);
+
+  const handleDelete = () => {
+    deleteTraderItem(trader_token, itemId.id).then((res) => {
+      if (res.message === 'Deleted successfully.') {
+        history.push('/shop');
+      }
+    });
+  };
+
   return (
     <div>
       {dialog && (
@@ -34,7 +38,9 @@ const ItemShow = () => {
       )}
       {item && item.owner && (
         <div className="controls flex-row justify-between">
-          <button className="btn p-1 m-4 bg-gradient-tertiary white">
+          <button
+            onClick={() => history.push(`/shop/item/${itemId.id}/edit`)}
+            className="btn p-1 m-4 bg-gradient-tertiary white">
             Edit O
           </button>
           <button

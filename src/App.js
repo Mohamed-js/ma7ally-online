@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Dashboard from './containers/Dashboard.jsx';
+import EditItem from './containers/EditItem.jsx';
 import Home from './containers/Home.jsx';
 import ItemShow from './containers/ItemShow.jsx';
 import JoinUs from './containers/JoinUs.jsx';
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/new-item" component={NewItem} />
           <Route exact path="/shop/item/:id" component={ItemShow} />
+          <Route exact path="/shop/item/:id/edit" component={EditItem} />
         </Switch>
       </Router>
     </div>
