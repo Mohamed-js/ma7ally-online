@@ -25,6 +25,18 @@ hr {
   font-size: 35px;
 }
 
+.danger {
+  color: #d21717;
+}
+
+.bg-danger {
+  background: #d21717;
+}
+
+.bg-gradient-danger {
+  background: linear-gradient(to left, #ec5252, #b90303);
+}
+
 .bg-gradient {
   background: linear-gradient(to left, #5e3d71, #370640);
 }
@@ -45,8 +57,16 @@ hr {
   background-color: #ff9800;
 }
 
+.bg-gradient-secondary {
+  background: linear-gradient(to left, #ff9800, #d68100);
+}
+
 .bg-tertiary {
   background-color: #00ee9f;
+}
+
+.bg-gradient-tertiary {
+  background: linear-gradient(to left, #00ee9f, #00cc88);
 }
 
 .white {
@@ -94,7 +114,6 @@ hr {
 .btn {
   border: none;
   border-radius: 4px;
-  font-weight: bold;
 }
 
 .fit-cover {
@@ -322,4 +341,15 @@ hr {
 
 .max-h-50 {
   max-height: 50vh;
+}
+
+.dialog-page {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(128, 128, 128, 0.74);
 }
