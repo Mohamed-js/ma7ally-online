@@ -50,13 +50,13 @@ const ItemShow = () => {
           </button>
         </div>
       )}
-      {item && (
+      {item && item.item && (
         <div className="item">
           <h1 className="text-center pt-4">{item.item.name}</h1>
           <div className="p-2 ">
             <img
               src={item.item.image_data}
-              alt=""
+              alt={item.item.name}
               className="full-img max-h-50"
             />
           </div>
@@ -82,9 +82,11 @@ const ItemShow = () => {
               </span>
             </p>
             <hr />
-            <p className="flex-row justify-between p-3">
-              <span>Quantity:</span> <span>{item.item.quantity} Pieces</span>
-            </p>
+            {item.owner && (
+              <p className="flex-row justify-between p-3">
+                <span>Quantity:</span> <span>{item.item.quantity} Pieces</span>
+              </p>
+            )}
             <hr />
           </div>
         </div>

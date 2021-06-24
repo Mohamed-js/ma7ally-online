@@ -31,6 +31,7 @@ const Shop = () => {
 
       <div className="grid items p-2">
         {items &&
+          items.items &&
           items.items.map((item) => <ItemCard key={item.id} item={item} />)}
       </div>
     </div>

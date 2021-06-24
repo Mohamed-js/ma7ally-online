@@ -54,7 +54,7 @@ const Home = () => {
               Have a free trial with limited time.
             </li>
             <li className="plan-option">Limited products.</li>
-            <li className="plan-option">Lasts for only one week.</li>
+            <li className="plan-option">Lasts for only one month.</li>
           </ul>
           <h3 className="price text-center m-2">Free</h3>
           <div className="join-now flex-row justify-center">
