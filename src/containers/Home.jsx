@@ -65,7 +65,7 @@ const Home = () => {
         </div>
 
         <div className="plan">
-          <h3 className="plan-name text-center white bg-secondary">Limited</h3>
+          <h3 className="plan-name text-center white bg-secondary">Silver</h3>
           <div className="plan-icon m-2 m-auto">
             <img className="full-img" src={limited} alt="limited" />
           </div>
@@ -83,7 +83,7 @@ const Home = () => {
         </div>
 
         <div className="plan">
-          <h3 className="plan-name last text-center bg-tertiary">Superhero</h3>
+          <h3 className="plan-name last text-center bg-tertiary">Gold</h3>
           <div className="plan-icon m-2 m-auto">
             <img className="full-img" src={hero} alt="hero" />
           </div>
