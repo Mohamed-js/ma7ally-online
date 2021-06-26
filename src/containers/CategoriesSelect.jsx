@@ -23,11 +23,11 @@ const CategoriesSelect = () => {
   }, [trader_token]);
 
   const handleChange = (e) => {
-    if (selectedItemsCount < 5 && !selectedItems.includes(e.target.value)) {
+    if (selectedItemsCount < 4 && !selectedItems.includes(e.target.value)) {
       setSelectedItems([...selectedItems, e.target.value]);
       setSelectedItemsCount(selectedItems.length + 1);
     } else if (
-      selectedItemsCount <= 5 &&
+      selectedItemsCount <= 4 &&
       selectedItems.includes(`${e.target.value}`)
     ) {
       const itemIndex = selectedItems.indexOf(`${e.target.value}`);
@@ -70,9 +70,9 @@ const CategoriesSelect = () => {
 
       <h2 className="text-center pt-2">Select your categories:</h2>
       <p className="text-center p-2">
-        You can select up to 5 categories as a starter.
+        You can select up to 4 categories as a starter.
       </p>
-      <p className="text-center pt-2">{selectedItemsCount}/5</p>
+      <p className="text-center pt-2">{selectedItemsCount}/4</p>
       {cats &&
         cats.map((cat) => (
           <div key={cat.id}>

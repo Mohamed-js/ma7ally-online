@@ -45,16 +45,14 @@ const Home = () => {
       <h2 className="our-plans text-center m-5">Our plans</h2>
       <div className="plans p-2 flex-col align-center">
         <div className="plan">
-          <h3 className="plan-name text-center white bg-primary">Trial</h3>
+          <h3 className="plan-name text-center white bg-primary">Basic</h3>
           <div className="plan-icon m-2 m-auto">
             <img className="full-img" src={trial} alt="trial" />
           </div>
           <ul className="plan-options">
-            <li className="plan-option">
-              Have a free trial with limited time.
-            </li>
-            <li className="plan-option">Limited products.</li>
-            <li className="plan-option">Lasts for only one month.</li>
+            <li className="plan-option">1 month free access.</li>
+            <li className="plan-option">10 products.</li>
+            <li className="plan-option">4 categories</li>
           </ul>
           <h3 className="price text-center m-2">Free</h3>
           <div className="join-now flex-row justify-center">
@@ -65,16 +63,16 @@ const Home = () => {
         </div>
 
         <div className="plan">
-          <h3 className="plan-name text-center white bg-secondary">Silver</h3>
+          <h3 className="plan-name text-center white bg-secondary">Bronze</h3>
           <div className="plan-icon m-2 m-auto">
             <img className="full-img" src={limited} alt="limited" />
           </div>
           <ul className="plan-options">
             <li className="plan-option">Have a limitless time access.</li>
-            <li className="plan-option">Limited products.</li>
-            <li className="plan-option">Unlimited time.</li>
+            <li className="plan-option">25 products.</li>
+            <li className="plan-option">4 categories.</li>
           </ul>
-          <h3 className="price text-center m-2">12$</h3>
+          <h3 className="price text-center m-2">25$</h3>
           <div className="join-now flex-row justify-center">
             <Link className="p-2 btn bg-tertiary primary" to="/join-us">
               Join now!
@@ -89,10 +87,28 @@ const Home = () => {
           </div>
           <ul className="plan-options">
             <li className="plan-option">Have a limitless time access.</li>
-            <li className="plan-option">Unlimited products.</li>
-            <li className="plan-option">Unlimited time.</li>
+            <li className="plan-option">65 products.</li>
+            <li className="plan-option">10 categories.</li>
           </ul>
-          <h3 className="price text-center m-2">20$</h3>
+          <h3 className="price text-center m-2">50$</h3>
+          <div className="join-now flex-row justify-center">
+            <Link className="p-2 btn bg-tertiary primary" to="/join-us">
+              Join now!
+            </Link>
+          </div>
+        </div>
+
+        <div className="plan">
+          <h3 className="plan-name last text-center bg-tertiary">Platinium</h3>
+          <div className="plan-icon m-2 m-auto">
+            <img className="full-img" src={hero} alt="hero" />
+          </div>
+          <ul className="plan-options">
+            <li className="plan-option">Have a limitless time access.</li>
+            <li className="plan-option">250 products.</li>
+            <li className="plan-option">Unlimited categories.</li>
+          </ul>
+          <h3 className="price text-center m-2">100$</h3>
           <div className="join-now flex-row justify-center">
             <Link className="p-2 btn bg-tertiary primary" to="/join-us">
               Join now!
