@@ -54,7 +54,9 @@ const Orders = () => {
             })}
         </div>
       </div>
-      {!orders && <h1>You don't have new orders.</h1>}
+      {orders && !orders[0] && (
+        <p className="text-center m-4">You don't have new orders.</p>
+      )}
     </div>
   );
 };

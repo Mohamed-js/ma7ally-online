@@ -35,7 +35,7 @@ const JoinUs = () => {
         'Ma7ally-token',
         JSON.stringify(respond.authentication_token)
       );
-      history.push('/');
+      history.push('/categories-select');
     }
   };
 

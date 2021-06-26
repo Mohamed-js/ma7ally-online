@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
+import CategoriesSelect from './containers/CategoriesSelect.jsx';
 import Dashboard from './containers/Dashboard.jsx';
 import EditItem from './containers/EditItem.jsx';
 import Home from './containers/Home.jsx';
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/join-us" component={JoinUs} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/categories-select" component={CategoriesSelect} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/orders" component={Orders} />

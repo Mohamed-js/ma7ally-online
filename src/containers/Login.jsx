@@ -39,7 +39,11 @@ const Login = () => {
       'Ma7ally-token',
       JSON.stringify(respond.authentication_token)
     );
-    return history.push('/dashboard');
+    console.log(respond.first_visit)
+    if (respond.first_visit) {
+      return history.push('/categories-select');
+    }
+    history.push('/dashboard');
   };
 
   return (

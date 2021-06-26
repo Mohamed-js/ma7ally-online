@@ -22,6 +22,27 @@ export const signin = async (credits) => {
   return respond;
 };
 
+export const showCategoriesToSelect = async () => {
+  const respond = await fetch(`${baseURL}/parents`, {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'GET',
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
+};
+
+export const addTraderCategory = async (token, categories) => {
+  const respond = await fetch(`${baseURL}/trader_categories`, {
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'POST',
+    body: JSON.stringify({ trader_category: { categories: categories } }),
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
+};
+
 export const showTrader = async (token) => {
   const respond = await fetch(`${baseURL}/traders/1`, {
     headers: { 'Content-Type': 'application/json', Authorization: token },

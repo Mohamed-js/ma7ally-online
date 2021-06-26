@@ -353,3 +353,7 @@ hr {
   width: 100%;
   background: rgba(128, 128, 128, 0.74);
 }
+
+.cat-max-height {
+  height: 70px;
+}

@@ -8,6 +8,8 @@ const Dialog = ({
   funcToDo,
   cancel,
 }) => {
+  const justification = funcToDo ? 'justify-between' : 'justify-center';
+
   return (
     <div onClick={cancel} className="dialog-page">
       <div className="dialog p-3">
@@ -15,10 +17,13 @@ const Dialog = ({
           {head}
         </div>
         <div className="dialog-body bg-white p-3">{body}</div>
-        <div className="dialog-controls bg-white flex-row justify-between">
-          <button onClick={funcToDo} className={`p-2 m-4 btn ok ${btnClass}`}>
-            {btnName}
-          </button>
+        <div className={`dialog-controls bg-white flex-row ${justification}`}>
+          {funcToDo && (
+            <button onClick={funcToDo} className={`p-2 m-4 btn ok ${btnClass}`}>
+              {btnName}
+            </button>
+          )}
+
           <button onClick={cancel} className="p-2 m-4 btn cancel">
             Cancel
           </button>
