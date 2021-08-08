@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-
+/* @import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"; */
 * {
   margin: 0;
   padding: 0;
@@ -356,4 +356,12 @@ hr {
 
 .cat-max-height {
   height: 70px;
+}
+.desktop-wrapper {
+
+  text-align: center;
+}
+.desktop-wrapper > div {
+  max-width: 1024px;
+  margin: 0 auto;
 }

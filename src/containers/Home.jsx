@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/home.css';
-import trial from '../images/trial.png';
-import limited from '../images/limited.png';
-import hero from '../images/hero.png';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../styles/home.css";
+import trial from "../images/trial.png";
+import limited from "../images/limited.png";
+import hero from "../images/hero.png";
 
 const Home = () => {
   return (
@@ -15,7 +15,10 @@ const Home = () => {
         <h3 className="headline text-center secondary">
           It's time to grow up your business with us.
         </h3>
-        <div className="join-now flex-row justify-center m-3">
+        <div
+          className="join-now flex-row justify-center m-3"
+          style={{ zIndex: 1000 }}
+        >
           <Link className="p-2 btn bg-tertiary primary" to="/join-us">
             Join now!
           </Link>
@@ -24,7 +27,8 @@ const Home = () => {
           <path
             fill="#0099ff"
             fillOpacity="1"
-            d="M0,288L48,261.3C96,235,192,181,288,144C384,107,480,85,576,64C672,43,768,21,864,37.3C960,53,1056,107,1152,122.7C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            d="M0,288L48,261.3C96,235,192,181,288,144C384,107,480,85,576,64C672,43,768,21,864,37.3C960,53,1056,107,1152,122.7C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
         </svg>
       </div>
 
