@@ -357,10 +357,11 @@ hr {
 .cat-max-height {
   height: 70px;
 }
-.desktop-wrapper {
 
+.desktop-wrapper {
   text-align: center;
 }
+
 .desktop-wrapper > div {
   max-width: 1024px;
   margin: 0 auto;
