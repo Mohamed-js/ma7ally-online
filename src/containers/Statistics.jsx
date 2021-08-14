@@ -10,6 +10,17 @@ const Statistics = ({}) => {
     showStatistics(trader_token).then((res) => setStore(res));
   }, [trader_token]);
 
+  const data = [
+    {
+      country: 'AD',
+      'hot dog': 193,
+    },
+    {
+      country: 'AE',
+      'hot dog': 99,
+    },
+  ];
+
   return (
     <div className="text-center p-2">
       <h1 className="text-center m-4">STATISTICS</h1>
@@ -86,9 +97,22 @@ const Statistics = ({}) => {
 
           {/* THIRD GROUP */}
           <div className="third-group">
-            <div id="chartdiv">
-              {' '}
-              <MyResponsivePie></MyResponsivePie>{' '}
+            <div className="third-group">
+              {
+                <MyResponsivePie
+                  data={store.store.category_profit_pairs.map((pair) => {
+                    return {
+                      category: pair[0].toUpperCase(),
+                      [pair[0].toUpperCase()]: pair[1],
+                    };
+                  })}
+                  keys={store.store.category_profit_pairs.map((pair) =>
+                    pair[0].toUpperCase()
+                  )}
+                />
+              }
+              <br />
+              <br />
             </div>
           </div>
         </div>

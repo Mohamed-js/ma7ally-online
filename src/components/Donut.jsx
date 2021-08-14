@@ -1,31 +1,27 @@
 import React from 'react';
-import { ResponsivePie } from '@nivo/pie';
-
-const MyResponsivePie = ({ data }) => (
-  <ResponsivePie
+import { ResponsiveBar } from '@nivo/bar';
+// make sure parent container have a defined height when using
+// responsive component, otherwise height will be 0 and
+// no chart will be rendered.
+// website examples showcase many properties,
+// you'll often use just a few of them.
+const MyResponsivePie = ({ data, keys }) => (
+  <ResponsiveBar
     data={data}
-    margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-    innerRadius={0.45}
-    padAngle={0.7}
-    cornerRadius={3}
-    activeOuterRadiusOffset={8}
-    borderWidth={1}
-    borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
-    arcLinkLabelsSkipAngle={10}
-    arcLinkLabelsTextColor="#333333"
-    arcLinkLabelsThickness={2}
-    arcLinkLabelsColor={{ from: 'color' }}
-    arcLabelsSkipAngle={10}
-    arcLabelsTextColor={{
-      from: 'color',
-      modifiers: [['darker', 2]],
-    }}
+    keys={keys}
+    indexBy="category"
+    margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+    padding={0.3}
+    valueScale={{ type: 'linear' }}
+    indexScale={{ type: 'band', round: true }}
+    valueFormat={{ format: ' >-', enabled: false }}
+    colors={{ scheme: 'category10' }}
     defs={[
       {
         id: 'dots',
         type: 'patternDots',
         background: 'inherit',
-        color: 'rgba(255, 255, 255, 0.3)',
+        color: '#fff',
         size: 4,
         padding: 1,
         stagger: true,
@@ -34,7 +30,7 @@ const MyResponsivePie = ({ data }) => (
         id: 'lines',
         type: 'patternLines',
         background: 'inherit',
-        color: 'rgba(255, 255, 255, 0.3)',
+        color: '#fff',
         rotation: -45,
         lineWidth: 6,
         spacing: 10,
@@ -43,73 +39,61 @@ const MyResponsivePie = ({ data }) => (
     fill={[
       {
         match: {
-          id: 'ruby',
+          id: 'fries',
         },
         id: 'dots',
       },
       {
         match: {
-          id: 'c',
-        },
-        id: 'dots',
-      },
-      {
-        match: {
-          id: 'go',
-        },
-        id: 'dots',
-      },
-      {
-        match: {
-          id: 'python',
-        },
-        id: 'dots',
-      },
-      {
-        match: {
-          id: 'scala',
-        },
-        id: 'lines',
-      },
-      {
-        match: {
-          id: 'lisp',
-        },
-        id: 'lines',
-      },
-      {
-        match: {
-          id: 'elixir',
-        },
-        id: 'lines',
-      },
-      {
-        match: {
-          id: 'javascript',
+          id: 'sandwich',
         },
         id: 'lines',
       },
     ]}
+    borderRadius={4}
+    borderWidth={0}
+    borderColor={{ from: 'color', modifiers: [['darker', '1.7']] }}
+    axisTop={null}
+    axisRight={null}
+    axisBottom={{
+      tickSize: 5,
+      tickPadding: 5,
+      tickRotation: 0,
+      legend: 'CATEGORY',
+      legendPosition: 'middle',
+      legendOffset: 32,
+    }}
+    axisLeft={{
+      tickSize: 5,
+      tickPadding: 5,
+      tickRotation: 0,
+      legend: 'PROFITS ( $ )',
+      legendPosition: 'middle',
+      legendOffset: -40,
+    }}
+    labelSkipWidth={12}
+    labelSkipHeight={12}
+    labelTextColor="#fff"
+    labelTextWeight="600"
     legends={[
       {
-        anchor: 'bottom',
+        dataFrom: 'keys',
+        anchor: 'top',
         direction: 'row',
         justify: false,
-        translateX: 0,
-        translateY: 56,
-        itemsSpacing: 0,
+        translateX: 28,
+        translateY: -38,
+        itemsSpacing: 2,
         itemWidth: 100,
-        itemHeight: 18,
-        itemTextColor: '#999',
+        itemHeight: 20,
         itemDirection: 'left-to-right',
-        itemOpacity: 1,
-        symbolSize: 18,
-        symbolShape: 'circle',
+        itemOpacity: 0.85,
+        symbolSize: 20,
         effects: [
           {
             on: 'hover',
             style: {
-              itemTextColor: '#000',
+              itemOpacity: 0.7,
             },
           },
         ],
@@ -117,5 +101,4 @@ const MyResponsivePie = ({ data }) => (
     ]}
   />
 );
-
 export default MyResponsivePie;

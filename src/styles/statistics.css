@@ -43,3 +43,7 @@
 .grid-column {
   grid-column-gap: 10px;
 }
+
+.third-group {
+  height: 400px;
+}
