@@ -1,9 +1,9 @@
-const baseURL = "http://localhost:3000/api/v1";
+const baseURL = 'http://localhost:3000/api/v1';
 
 export const signup = async (credits) => {
   const respond = await fetch(`${baseURL}/traders`, {
-    headers: { "Content-Type": "application/json" },
-    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    method: 'POST',
     body: JSON.stringify({ trader: credits }),
   })
     .then((res) => res.json())
@@ -13,8 +13,8 @@ export const signup = async (credits) => {
 
 export const signIn = async (credits) => {
   const respond = await fetch(`${baseURL}/sessions`, {
-    headers: { "Content-Type": "application/json" },
-    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    method: 'POST',
     body: JSON.stringify(credits),
   })
     .then((res) => res.json())
@@ -24,8 +24,8 @@ export const signIn = async (credits) => {
 
 export const showCategoriesToSelect = async () => {
   const respond = await fetch(`${baseURL}/parents`, {
-    headers: { "Content-Type": "application/json" },
-    method: "GET",
+    headers: { 'Content-Type': 'application/json' },
+    method: 'GET',
   })
     .then((res) => res.json())
     .then((data) => data);
@@ -34,8 +34,8 @@ export const showCategoriesToSelect = async () => {
 
 export const addTraderCategory = async (token, categories) => {
   const respond = await fetch(`${baseURL}/trader_categories`, {
-    headers: { "Content-Type": "application/json", Authorization: token },
-    method: "POST",
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'POST',
     body: JSON.stringify({ trader_category: { categories: categories } }),
   })
     .then((res) => res.json())
@@ -45,8 +45,8 @@ export const addTraderCategory = async (token, categories) => {
 
 export const showTrader = async (token) => {
   const respond = await fetch(`${baseURL}/traders/1`, {
-    headers: { "Content-Type": "application/json", Authorization: token },
-    method: "GET",
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'GET',
   })
     .then((res) => res.json())
     .then((data) => data);
@@ -55,21 +55,21 @@ export const showTrader = async (token) => {
 
 export const changeStoreImage = async (token, image) => {
   const fd = new FormData();
-  fd.append("file", image);
-  fd.append("upload_preset", "ma7ally");
+  fd.append('file', image);
+  fd.append('upload_preset', 'ma7ally');
 
   const res = await fetch(
-    "https://api.cloudinary.com/v1_1/atefcloud/image/upload",
+    'https://api.cloudinary.com/v1_1/atefcloud/image/upload',
     {
-      method: "POST",
+      method: 'POST',
       body: fd,
     }
   );
 
   const file = await res.json();
   const respond = await fetch(`${baseURL}/traders/1`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json", Authorization: token },
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', Authorization: token },
     body: JSON.stringify({ image: file.url }),
   })
     .then((res) => res.json())
@@ -79,8 +79,8 @@ export const changeStoreImage = async (token, image) => {
 
 export const showTraderOrders = async (token) => {
   const respond = await fetch(`${baseURL}/orders`, {
-    headers: { "Content-Type": "application/json", Authorization: token },
-    method: "GET",
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'GET',
   })
     .then((res) => res.json())
     .then((data) => data);
@@ -89,8 +89,8 @@ export const showTraderOrders = async (token) => {
 
 export const showTraderItems = async (token) => {
   const respond = await fetch(`${baseURL}/trader-items`, {
-    headers: { "Content-Type": "application/json", Authorization: token },
-    method: "GET",
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'GET',
   })
     .then((res) => res.json())
     .then((data) => data);
@@ -99,13 +99,13 @@ export const showTraderItems = async (token) => {
 
 export const AddNewItem = async (token, item, image) => {
   const fd = new FormData();
-  fd.append("file", image);
-  fd.append("upload_preset", "ma7ally");
+  fd.append('file', image);
+  fd.append('upload_preset', 'ma7ally');
 
   const res = await fetch(
-    "https://api.cloudinary.com/v1_1/atefcloud/image/upload",
+    'https://api.cloudinary.com/v1_1/atefcloud/image/upload',
     {
-      method: "POST",
+      method: 'POST',
       body: fd,
     }
   );
@@ -113,8 +113,8 @@ export const AddNewItem = async (token, item, image) => {
   // Image is uploaded
   const itemWithImage = { ...item, image_data: file.url };
   const respond = await fetch(`${baseURL}/items`, {
-    headers: { "Content-Type": "application/json", Authorization: token },
-    method: "POST",
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'POST',
     body: JSON.stringify({ item: itemWithImage }),
   })
     .then((res) => res.json())
@@ -124,8 +124,8 @@ export const AddNewItem = async (token, item, image) => {
 
 export const showTraderCategories = async (token) => {
   const respond = await fetch(`${baseURL}/trader-categories`, {
-    headers: { "Content-Type": "application/json", Authorization: token },
-    method: "GET",
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'GET',
   })
     .then((res) => res.json())
     .then((data) => data);
@@ -134,8 +134,8 @@ export const showTraderCategories = async (token) => {
 
 export const showItem = async (token, itemId) => {
   const respond = await fetch(`${baseURL}/items/${itemId}`, {
-    headers: { "Content-Type": "application/json", Authorization: token },
-    method: "GET",
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'GET',
   })
     .then((res) => res.json())
     .then((data) => data);
@@ -144,8 +144,8 @@ export const showItem = async (token, itemId) => {
 
 export const deleteTraderItem = async (token, itemId) => {
   const respond = await fetch(`${baseURL}/items/${itemId}`, {
-    headers: { "Content-Type": "application/json", Authorization: token },
-    method: "DELETE",
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'DELETE',
   })
     .then((res) => res.json())
     .then((data) => data);
@@ -154,9 +154,19 @@ export const deleteTraderItem = async (token, itemId) => {
 
 export const editTraderItem = async (token, itemId, item) => {
   const respond = await fetch(`${baseURL}/items/${itemId}`, {
-    headers: { "Content-Type": "application/json", Authorization: token },
-    method: "PATCH",
+    headers: { 'Content-Type': 'application/json', Authorization: token },
+    method: 'PATCH',
     body: JSON.stringify({ item: item }),
+  })
+    .then((res) => res.json())
+    .then((data) => data);
+  return respond;
+};
+
+export const showStatistics = async (traderToken) => {
+  const respond = await fetch(`${baseURL}/statistics`, {
+    headers: { 'Content-Type': 'application/json', Authorization: traderToken },
+    method: 'GET',
   })
     .then((res) => res.json())
     .then((data) => data);

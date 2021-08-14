@@ -1,0 +1,45 @@
+.curved {
+  border-radius: 8px;
+}
+
+.one-line-card {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.one-line-card .number {
+  margin: 4px;
+}
+
+.three-line-card {
+  width: 100%;
+  padding: 80px 10px;
+  padding-bottom: 65px;
+  height: 150px;
+  justify-content: center;
+}
+
+.number {
+  font-size: 30px;
+}
+
+.currency {
+  font-size: 25px;
+}
+
+.second-group .three-line-card {
+  padding: 10px 10px;
+  height: 102px;
+}
+
+.half-line-card {
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.grid-column {
+  grid-column-gap: 10px;
+}
