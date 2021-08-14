@@ -18,7 +18,7 @@
   width: 100%;
   padding: 80px 10px;
   padding-bottom: 65px;
-  height: 150px;
+  height: 159px;
   justify-content: center;
 }
 
@@ -46,4 +46,78 @@
 
 .third-group {
   height: 400px;
+  margin-bottom: 50px;
+}
+
+.card {
+  border: 1px #b7b7b747 solid;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+.card .name-price {
+  width: 100%;
+  text-align: initial;
+}
+
+.products .img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.products .number {
+  font-size: 40px;
+}
+
+.profit-unit {
+  width: 210px;
+  height: 100px;
+  border-left: 1px #b7b7b747 solid;
+  border-radius: 6px;
+  padding-left: 12px;
+}
+
+@media screen and (min-width: 900px) {
+  .first-two-groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  .store-users {
+    margin-top: 0;
+  }
+
+  .first-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .second-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lazy-users {
+    order: 3;
+    margin-top: 0;
+  }
+
+  .top-products {
+    display: flex;
+    grid-column-gap: 10px;
+  }
+}
+
+@media screen and (min-width: 1370px) {
+  .first-four-groups {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    grid-gap: 10px;
+  }
+
+  .top-products {
+    display: block;
+  }
 }
