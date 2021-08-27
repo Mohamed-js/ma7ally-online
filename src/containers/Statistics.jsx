@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/statistics.css';
 import { showStatistics } from '../Helpers';
-import MyResponsivePie from '../components/Donut.jsx';
+// import MyResponsivePie from '../components/Donut.jsx';
 import TopProducts from '../components/TopPrpducts';
 
 const Statistics = ({}) => {
@@ -104,7 +104,7 @@ const Statistics = ({}) => {
 
             {/* THIRD GROUP */}
             <div className="third-group">
-              <div className="third-group">
+              {/* <div className="third-group">
                 {
                   <MyResponsivePie
                     data={store.store.category_profit_pairs.map((pair) => {
@@ -120,7 +120,7 @@ const Statistics = ({}) => {
                 }
                 <br />
                 <br />
-              </div>
+              </div> */}
             </div>
           </div>
           {/* FOURTH GROUP */}

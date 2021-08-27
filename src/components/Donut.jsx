@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResponsiveBar } from '@nivo/bar';
+// import { ResponsiveBar } from '@nivo/bar';
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
 // no chart will be rendered.
