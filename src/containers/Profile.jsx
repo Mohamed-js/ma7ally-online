@@ -1,31 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { showTrader, changeStoreImage } from "../Helpers";
-import prof from "../images/prof.png";
+import React, { useEffect, useState } from 'react';
+import { showTrader, changeStoreImage } from '../Helpers';
+import prof from '../images/prof.png';
 
-import Loader from "react-loader-spinner";
+import Loader from 'react-loader-spinner';
 
 const Profile = () => {
   const [trader, setTrader] = useState();
-  const trader_token = JSON.parse(sessionStorage.getItem("Ma7ally-token"));
+  const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
 
   useEffect(async () => {
     setTrader(await showTrader(trader_token).then((data) => data));
   }, [trader_token]);
 
   const handleClick = (e) => {
-    document.getElementById("upload").firstChild.click();
+    document.getElementById('upload').firstChild.click();
   };
 
   const save = async (e) => {
     if (e.target.files.length === 0) return;
-    document.getElementById("change").style.display = "none";
-    document.getElementById("image-loader").toggleAttribute("hidden", false);
-    document.getElementById("upload").style.display = "none";
+    document.getElementById('change').style.display = 'none';
+    document.getElementById('image-loader').toggleAttribute('hidden', false);
+    document.getElementById('upload').style.display = 'none';
     const image = e.target.files[0];
     let traderData = await changeStoreImage(trader_token, image);
     await setTrader(traderData);
-    document.getElementById("image-loader").toggleAttribute("hidden", true);
-    document.getElementById("change").style.display = "block";
+    document.getElementById('image-loader').toggleAttribute('hidden', true);
+    document.getElementById('change').style.display = 'block';
   };
 
   return (
@@ -64,6 +64,12 @@ const Profile = () => {
                 className="btn p-1"
                 type="file"
               />
+            </div>
+            <div className="text-center">
+              <h3>You will find your store here:</h3>
+              <a href={`http://ma7ally.herokuapp.com/${trader.storename}`}>
+                {trader.storename.toUpperCase()}
+              </a>
             </div>
           </div>
         </div>
