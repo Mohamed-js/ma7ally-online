@@ -36,7 +36,7 @@ const Profile = () => {
             <h2>Welcome, </h2>
             <h1>{trader.tradername}</h1>
           </div>
-          <h1 className="secondary header">{trader.storename}</h1>
+          <h1 className="secondary header">{trader.storename.toUpperCase()}</h1>
           <div className="profile-avatar m-4">
             {trader.image_data && (
               <img
@@ -65,7 +65,7 @@ const Profile = () => {
                 type="file"
               />
             </div>
-            <div className="text-center">
+            <div className="text-center mt-3">
               <h3>You will find your store here:</h3>
               <a href={`http://ma7ally.herokuapp.com/${trader.storename}`}>
                 {trader.storename.toUpperCase()}
