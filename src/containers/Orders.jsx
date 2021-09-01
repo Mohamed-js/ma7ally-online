@@ -17,7 +17,7 @@ const Orders = () => {
       </div>
       <div>
         <div className="orders">
-          {orders && console.log(orders)}
+          {orders && console.log(orders[0])}
           {orders &&
             orders.map((order) => {
               return (
@@ -40,25 +40,29 @@ const Orders = () => {
                     </div>
 
                     <div className="items">
-                      {order.items &&
-                        order.items.map((item) => {
+                      {order.order_items &&
+                        order.order_items.map((order_item) => {
                           return (
                             <div key={uuid()} className="item order">
                               <div className="col image">Image</div>
                               <div className="col image">
                                 <img
                                   className="full-img"
-                                  src={item.image_data}
+                                  src={order_item.item.image_data}
                                   alt="order"
                                 />
                               </div>
                               <div className="col item">Item</div>
-                              <div className="col item">{item.name}</div>
+                              <div className="col item">
+                                {order_item.item.name}
+                              </div>
                               <div className="col size">Size</div>
-                              <div className="col size">{item.size}</div>
+                              <div className="col size">
+                                {order_item.item.size}
+                              </div>
                               <div className="col quantity">Quantity</div>
                               <div className="col quantity">
-                                {item.quantity}
+                                {order_item.quantity}
                               </div>
                             </div>
                           );
