@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar loggedIn={loggedIn} />
+        <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route

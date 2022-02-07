@@ -5,7 +5,8 @@ const Navbar = ({ loggedIn }) => {
   const history = useHistory();
   const user = JSON.parse(sessionStorage.getItem("Ma7ally-token"));
 
-  const Logout = () => {
+  const Logout = ({ setLoggedIn }) => {
+    setLoggedIn(false);
     sessionStorage.removeItem("Ma7ally-token");
     history.push("/");
   };
