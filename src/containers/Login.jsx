@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router';
-import { signIn } from '../Helpers';
+import React, { useState } from "react";
+import { useHistory } from "react-router";
+import { signIn } from "../Helpers";
 
-const Login = () => {
+const Login = ({ setLoggedIn }) => {
   const history = useHistory();
   const [credits, setCredits] = useState();
   const [failure, setFailure] = useState();
-  const user = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const user = JSON.parse(sessionStorage.getItem("Ma7ally-token"));
   if (user) {
-    history.push('/dashboard');
+    history.push("/dashboard");
   }
 
   const handleChange = (e) => {
@@ -16,33 +16,34 @@ const Login = () => {
   };
 
   const handleClick = () => {
-    const btn = document.getElementById('login');
+    const btn = document.getElementById("login");
     btn.disabled = true;
-    btn.style.backgroundColor = '#4caf50';
-    btn.value = 'Wait...';
-    btn.textContent = 'Wait...';
+    btn.style.backgroundColor = "#4caf50";
+    btn.value = "Wait...";
+    btn.textContent = "Wait...";
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFailure('');
+    setFailure("");
     handleClick();
     const respond = await signIn(credits);
     if (respond && respond.failure) {
-      const btn = document.getElementById('login');
+      const btn = document.getElementById("login");
       btn.disabled = false;
-      btn.style.backgroundColor = '#ff9800';
+      btn.style.backgroundColor = "#ff9800";
       return setFailure(respond.failure);
     }
-    setFailure('');
+    setFailure("");
     sessionStorage.setItem(
-      'Ma7ally-token',
+      "Ma7ally-token",
       JSON.stringify(respond.authentication_token)
     );
+    setLoggedIn(true);
     if (respond.first_visit) {
-      return history.push('/categories-select');
+      return history.push("/categories-select");
     }
-    history.push('/dashboard');
+    history.push("/dashboard");
   };
 
   return (

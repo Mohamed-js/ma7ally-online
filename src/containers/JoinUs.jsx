@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { signup } from "../Helpers";
 
-const JoinUs = () => {
+const JoinUs = ({ setLoggedIn }) => {
   const history = useHistory();
   const [credits, setCredits] = useState();
   const [failure, setFailure] = useState();
@@ -31,6 +31,7 @@ const JoinUs = () => {
       setFailure(respond);
     }
     if (respond.authentication_token) {
+      setLoggedIn(true);
       sessionStorage.setItem(
         "Ma7ally-token",
         JSON.stringify(respond.authentication_token)
