@@ -29,7 +29,7 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
   } else {
     history.push('/');
     return (
-      <nav className="flex-row justify-between bg-gradient p-5">
+      <nav className="flex-row justify-between align-center p-4">
         <Link className="btn bg-secondary p-2" to="/join-us">
           Join Us
         </Link>

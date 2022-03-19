@@ -14,7 +14,9 @@ import Orders from './containers/Orders.jsx';
 import Profile from './containers/Profile.jsx';
 import Shop from './containers/Shop.jsx';
 import Statistics from './containers/Statistics.jsx';
+import Sidebar from './components/Sidebar.jsx';
 import { showTrader } from './Helpers.js';
+
 
 function App() {
   const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
@@ -28,23 +30,11 @@ function App() {
   return (
     <div className="App">
       <div class="app-container">
-        <div class="sidebar flex-col w-100">
-          {trader && trader.image_data && (
-            <div class="logo mt-5">
-              <div class="profile-avatar mt-4 mb-2 m-auto">
-                <img
-                  className="full-img fit-cover"
-                  src={trader.image_data}
-                  alt="Profile"
-                />
-              </div>
-              <h2 class="text-center">{trader.storename.toUpperCase()}</h2>
-            </div>
-          )}
-          {/* <%= render 'layouts/navlinks'%> */}
-        </div>
-        <div class="main">
-          <Router>
+        <Router>
+          <div class="sidebar flex-col">
+            <Sidebar trader={trader} />
+          </div>
+          <div class="main">
             <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             <div class="content p-2 rounded">
               <Switch>
@@ -73,8 +63,8 @@ function App() {
                 <Route exact path="/shop/item/:id/edit" component={EditItem} />
               </Switch>
             </div>
-          </Router>
-        </div>
+          </div>
+        </Router>
       </div>
     </div>
   );

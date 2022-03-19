@@ -22,7 +22,7 @@ const Orders = () => {
             orders.map((order) => {
               return (
                 <div key={uuid()}>
-                  <div>
+                  <div className="order-container curved p-2">
                     <div className="order">
                       <div className="col name">Name</div>
                       <div className="col name">{order.user.username}</div>
@@ -30,8 +30,8 @@ const Orders = () => {
                       <div className="col address">{order.address}</div>
                       <div className="col phone">Phone</div>
                       <div className="col phone">{order.phone}</div>
-                      <div className="col phone">Phone Alt</div>
-                      <div className="col phone">{order.phone2}</div>
+                      {/* <div className="col phone">Phone Alt</div>
+                      <div className="col phone">{order.phone2}</div> */}
                       <div className="col price">Total $</div>
                       <div className="col price">
                         {order.total}
@@ -42,27 +42,26 @@ const Orders = () => {
                     <div className="items">
                       {order.order_items &&
                         order.order_items.map((order_item) => {
+                          const count =
+                            order_item.quantity === 1 ? 'Piece' : 'Pieces';
                           return (
-                            <div key={uuid()} className="item order">
-                              <div className="col image">Image</div>
-                              <div className="col image">
+                            <div key={uuid()} className="item curved m-2">
+                              <div className="image p-1 flex-row align-center justify-center">
                                 <img
                                   className="full-img"
                                   src={order_item.item.image_data}
                                   alt="order"
                                 />
                               </div>
-                              <div className="col item">Item</div>
-                              <div className="col item">
-                                {order_item.item.name}
-                              </div>
-                              <div className="col size">Size</div>
-                              <div className="col size">
-                                {order_item.item.size}
-                              </div>
-                              <div className="col quantity">Quantity</div>
-                              <div className="col quantity">
-                                {order_item.quantity}
+                              <div className="m-2">
+                                <h4 className="m-1">{order_item.item.name}</h4>
+                                <h5 className="m-1">
+                                  Size: {order_item.item.size}{' '}
+                                  {order_item.item.unit}
+                                </h5>
+                                <h5 className="m-1 secondary">
+                                  {order_item.quantity} {count}
+                                </h5>
                               </div>
                             </div>
                           );

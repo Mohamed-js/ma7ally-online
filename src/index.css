@@ -461,9 +461,13 @@ select {
 }
 
 .sidebar-links .sidebar-link {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   position: relative;
   margin-bottom: 8px;
+}
+
+.sidebar-links .sidebar-link a {
+  color: white;
 }
 
 .sidebar-links .sidebar-link i {
