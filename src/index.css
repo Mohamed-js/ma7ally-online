@@ -535,8 +535,6 @@ select {
   position: absolute;
   top: 350px;
   left: 40px;
-  width: 30px;
-  height: 30px;
   background-color: rgba(255, 255, 255, 0.096);
   border-radius: 50%;
   z-index: -1;
@@ -547,8 +545,6 @@ select {
   position: absolute;
   bottom: 150px;
   right: -40px;
-  width: 100px;
-  height: 100px;
   background-color: rgba(255, 255, 255, 0.096);
   border-radius: 50%;
   z-index: -1;
@@ -585,6 +581,16 @@ select {
 @media screen and (min-width: 900px) {
   .main {
     width: calc(100% - 270px);
+  }
+
+  .main::after {
+    width: 30px;
+    height: 30px;
+  }
+
+  .main::before {
+    width: 100px;
+    height: 100px;
   }
 
   .sidebar {

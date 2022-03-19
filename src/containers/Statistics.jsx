@@ -16,6 +16,8 @@ import {
 
 import TopProducts from '../components/TopPrpducts';
 import { useHistory } from 'react-router-dom';
+import MyResponsiveBar from '../components/Chart';
+import MyResponsivePie from '../components/Donut';
 
 const Statistics = ({}) => {
   const history = useHistory();
@@ -122,8 +124,35 @@ const Statistics = ({}) => {
             </div>
 
             {/* THIRD GROUP */}
-            <div className="third-group">
-              {data && (
+            <div className="third-group mt-5">
+              <div className="chart chart2">
+                <MyResponsiveBar
+                  data={store.store.category_profit_pairs.map((pair) => {
+                    return {
+                      category: pair[0].toUpperCase(),
+                      [pair[0].toUpperCase()]: pair[1],
+                    };
+                  })}
+                  keys={store.store.category_profit_pairs.map((pair) =>
+                    pair[0].toUpperCase()
+                  )}
+                />
+              </div>
+              <div className="chart chart1">
+                <MyResponsivePie
+                  data={store.store.category_profit_pairs.map((pair) => {
+                    return {
+                      id: pair[0].toUpperCase(),
+                      value: pair[1],
+                    };
+                  })}
+                  keys={store.store.category_profit_pairs.map((pair) =>
+                    pair[0].toUpperCase()
+                  )}
+                />
+              </div>
+
+              {/* {data && (
                 <div className="flex-col justify-evenly chartss">
                   <ResponsiveContainer width={'50%'} height={400}>
                     <LineChart
@@ -162,7 +191,7 @@ const Statistics = ({}) => {
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
-              )}
+              )} */}
 
               <br />
               <br />

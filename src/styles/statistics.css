@@ -45,8 +45,13 @@
 }
 
 .third-group {
-  height: fit-content;
+  height: 800px;
   margin-bottom: 50px;
+}
+
+.chart {
+  height: 400px;
+  width: 98%;
 }
 
 .card {
@@ -133,6 +138,12 @@
 
   .recharts-responsive-container {
     width: 50% !important;
+  }
+
+  .third-group {
+    display: grid;
+    height: 400px;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
