@@ -1,20 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/statistics.css';
 import { showStatistics } from '../Helpers';
-// import MyResponsivePie from '../components/Donut.jsx';
+import {
+  LineChart,
+  XAxis,
+  YAxis,
+  Legend,
+  Tooltip,
+  CartesianGrid,
+  Line,
+  BarChart,
+  Bar,
+  ResponsiveContainer,
+} from 'recharts';
+
 import TopProducts from '../components/TopPrpducts';
+import { useHistory } from 'react-router-dom';
 
 const Statistics = ({}) => {
+  const history = useHistory();
   const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
   const [store, setStore] = useState();
+  const [data, setData] = useState();
+  const user = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+
+  if (!user) {
+    history.push('/login');
+  }
   useEffect(() => {
-    showStatistics(trader_token).then((res) => setStore(res));
+    showStatistics(trader_token).then((res) => {
+      if (res.store) {
+        setStore(res);
+        setData(
+          res.store.category_profit_pairs.map((pair) => {
+            return {
+              name: pair[0].toUpperCase(),
+              profit: pair[1] + '$',
+            };
+          })
+        );
+      }
+    });
   }, [trader_token]);
 
   return (
     <div className="text-center p-2">
-      <h1 className="text-center m-4">STATISTICS</h1>
-      {store && console.log(store)}
       {store && (
         <div className="first-four-groups">
           <div className="first-three-groups">
@@ -93,23 +123,49 @@ const Statistics = ({}) => {
 
             {/* THIRD GROUP */}
             <div className="third-group">
-              {/* <div className="third-group">
-                {
-                  <MyResponsivePie
-                    data={store.store.category_profit_pairs.map((pair) => {
-                      return {
-                        category: pair[0].toUpperCase(),
-                        [pair[0].toUpperCase()]: pair[1],
-                      };
-                    })}
-                    keys={store.store.category_profit_pairs.map((pair) =>
-                      pair[0].toUpperCase()
-                    )}
-                  />
-                }
-                <br />
-                <br />
-              </div> */}
+              {data && (
+                <div className="flex-col justify-evenly chartss">
+                  <ResponsiveContainer width={'50%'} height={400}>
+                    <LineChart
+                      height={400}
+                      data={data}
+                      margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+                      <XAxis dataKey="name" />
+                      <Tooltip />
+                      <CartesianGrid stroke="#171717" />
+
+                      <Line
+                        type="monotone"
+                        dataKey="Profit"
+                        stroke="#fefefe"
+                        yAxisId={1}
+                      />
+                      <Legend />
+                    </LineChart>
+                  </ResponsiveContainer>
+                  <ResponsiveContainer width="50%" height={420}>
+                    <BarChart
+                      height={300}
+                      data={data}
+                      margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                      }}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="profit" barSize={20} fill="#8884d8" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              )}
+
+              <br />
+              <br />
             </div>
           </div>
           {/* FOURTH GROUP */}

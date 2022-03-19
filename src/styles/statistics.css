@@ -45,7 +45,7 @@
 }
 
 .third-group {
-  height: 400px;
+  height: fit-content;
   margin-bottom: 50px;
 }
 
@@ -77,11 +77,29 @@
   padding-left: 12px;
 }
 
+.chartss {
+  flex-direction: column;
+  align-items: center;
+}
+
+.recharts-responsive-container {
+  width: 100% !important;
+}
+
 @media screen and (min-width: 900px) {
   .first-two-groups {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .first-two-groups .first-group {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+
+  .first-two-groups .second-group {
+    flex-grow: 1;
+    margin-left: 10px;
   }
 
   .store-users {
@@ -106,18 +124,20 @@
 
   .top-products {
     display: flex;
-    grid-column-gap: 10px;
+    justify-content: space-evenly;
+  }
+
+  .chartss {
+    flex-direction: row;
+  }
+
+  .recharts-responsive-container {
+    width: 50% !important;
   }
 }
 
-@media screen and (min-width: 1370px) {
-  .first-four-groups {
-    display: grid;
-    grid-template-columns: 5fr 2fr;
-    grid-gap: 10px;
-  }
-
-  .top-products {
-    display: block;
+@media screen and (min-width: 1610px) {
+  .first-three-groups {
+    flex-grow: 1;
   }
 }

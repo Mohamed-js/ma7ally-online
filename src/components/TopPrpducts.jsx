@@ -6,7 +6,9 @@ const TopProducts = ({ TopProducts, type }) => {
       <h3 className="text-center p-3 bg-gradient-tertiary curved">{type}</h3>
       {TopProducts &&
         TopProducts.map((product) => (
-          <div className="card flex-row justify-between p-2">
+          <div
+            key={product[0][0]}
+            className="card flex-row justify-between p-2">
             <div className="img">
               <img
                 className="full-img"

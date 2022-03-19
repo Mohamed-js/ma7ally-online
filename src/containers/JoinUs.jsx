@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router";
-import { signup } from "../Helpers";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { signup } from '../Helpers';
 
 const JoinUs = ({ setLoggedIn }) => {
   const history = useHistory();
   const [credits, setCredits] = useState();
   const [failure, setFailure] = useState();
-  const user = JSON.parse(sessionStorage.getItem("Ma7ally-token"));
+  const user = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
   if (user) {
-    history.push("/dashboard");
+    history.push('/');
   }
   const handleClick = () => {
-    const btn = document.getElementById("signup");
+    const btn = document.getElementById('signup');
     btn.disabled = true;
-    btn.style.backgroundColor = "#4caf50";
-    btn.style.color = "#370640";
-    btn.value = "Wait...";
+    btn.style.backgroundColor = '#4caf50';
+    btn.style.color = '#370640';
+    btn.value = 'Wait...';
   };
 
   const handleChange = (e) => {
@@ -33,17 +33,17 @@ const JoinUs = ({ setLoggedIn }) => {
     if (respond.authentication_token) {
       setLoggedIn(true);
       sessionStorage.setItem(
-        "Ma7ally-token",
+        'Ma7ally-token',
         JSON.stringify(respond.authentication_token)
       );
-      history.push("/categories-select");
+      history.push('/categories-select');
     }
   };
 
   if (failure) {
-    const btn = document.getElementById("signup");
+    const btn = document.getElementById('signup');
     btn.disabled = false;
-    btn.style.backgroundColor = "#ff9800";
+    btn.style.backgroundColor = '#ff9800';
   }
   return (
     <div className="desktop-wrapper">
