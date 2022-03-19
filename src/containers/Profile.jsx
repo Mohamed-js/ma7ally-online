@@ -65,9 +65,12 @@ const Profile = () => {
                 type="file"
               />
             </div>
-            <div className="text-center mt-3">
-              <h3>You will find your store here:</h3>
-              <a href={`http://ma7ally.herokuapp.com/${trader.storename}`}>
+            <div className="text-center mt-3 flex-row align-center">
+              <h3>You will find your store here: </h3>
+              <hr />
+              <a
+                className="secondary ml-2"
+                href={`http://ma7ally.herokuapp.com/${trader.storename}`}>
                 {trader.storename.toUpperCase()}
               </a>
             </div>
