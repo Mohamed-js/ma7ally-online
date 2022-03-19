@@ -8,10 +8,19 @@
   transition: 0.2s;
 }
 
-body {
+body.logged-in {
   color: #370640;
   background: linear-gradient(to left, #5e3d71, #370640);
   overflow: hidden;
+}
+
+body.logged-out {
+  overflow: unset;
+  background: white;
+}
+
+nav.logged-out {
+  background: linear-gradient(to left, #5e3d71, #370640);
 }
 
 a {

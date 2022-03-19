@@ -1,6 +1,5 @@
 .cover {
   min-height: 90vh;
-  /* background: linear-gradient(to left, #eeb462, #dc8665); */
   background: linear-gradient(to left, #5e3d71, #370640);
   position: relative;
 }

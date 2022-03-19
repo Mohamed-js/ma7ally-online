@@ -51,7 +51,7 @@ const ItemShow = () => {
         </div>
       )}
       {item && item.item && (
-        <div className="item">
+        <div className="item2">
           <h1 className="text-center pt-4">{item.item.name}</h1>
           <div className="p-2 ">
             <img

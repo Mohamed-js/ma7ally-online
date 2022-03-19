@@ -48,6 +48,12 @@
   background-color: white;
 }
 
+.item2 {
+  display: block;
+  outline: #3908424d solid 1px;
+  background-color: white;
+}
+
 @media screen and (min-width: 1200px) {
   .orders {
     display: flex;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 const Navbar = ({ loggedIn, setLoggedIn }) => {
@@ -29,7 +29,7 @@ const Navbar = ({ loggedIn, setLoggedIn }) => {
   } else {
     history.push('/');
     return (
-      <nav className="flex-row justify-between align-center p-4">
+      <nav className="flex-row justify-between align-center p-4 logged-out">
         <Link className="btn bg-secondary p-2" to="/join-us">
           Join Us
         </Link>
