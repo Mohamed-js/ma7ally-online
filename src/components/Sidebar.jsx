@@ -12,6 +12,7 @@ const Sidebar = () => {
   useEffect(async () => {
     setTrader(await showTrader(trader_token));
   }, [trader_token]);
+
   return (
     <div>
       {trader && (

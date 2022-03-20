@@ -62,7 +62,7 @@ const Profile = () => {
             <div id="image-loader" hidden>
               <Loader type="Bars" color="#5e3d71" height={100} width={100} />
             </div>
-       
+
             <div id="upload" className="upload">
               <input
                 id="image"
