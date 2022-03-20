@@ -1,8 +1,182 @@
 .cover {
-  height: 100vh;
-  background: linear-gradient(to left, #eeb462, #dc8665);
+  min-height: 90vh;
+  background: linear-gradient(to left, #5e3d71, #370640);
+  position: relative;
+}
+
+.light-shadow {
+  text-shadow: #00ee9f 3px 1px 8px;
 }
 
 .header {
-  font-size: 70px;
+  font-size: 60px;
+}
+
+.headline {
+  font-size: 25px;
+  padding: 10px;
+  font-weight: 100;
+}
+
+.cover path {
+  fill: white;
+}
+
+.cover svg {
+  position: absolute;
+  bottom: 0;
+}
+
+.cover .btn {
+  font-size: 15px;
+}
+
+.border-left {
+  border-left: 20px solid #370640;
+}
+
+.border-right {
+  border-right: 20px solid #370640;
+}
+
+.description {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+}
+
+.plan {
+  width: 100%;
+  margin-bottom: 20px;
+  border: #370640 1px solid;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 400px;
+  padding-bottom: 15px;
+}
+
+.plan-icon {
+  max-height: 100px;
+  max-width: 100px;
+  text-align: center;
+}
+
+.plan-name {
+  padding: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-name.last::before {
+  content: 'BEST';
+  font-size: 12px;
+  background-color: #370640;
+  position: absolute;
+  padding: 40px;
+  padding-bottom: 10px;
+  color: rgb(255, 255, 255);
+  left: -38px;
+  top: -18px;
+  transform: rotate(-45deg);
+}
+
+.plan-options {
+  list-style-type: circle;
+  padding-left: 40px;
+}
+
+.plan-option {
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 767px) {
+  .cover {
+    padding-bottom: 150px;
+  }
+
+  .why-us {
+    margin-top: 0;
+    font-size: 40px;
+  }
+
+  .header {
+    font-size: 80px;
+  }
+
+  .headline {
+    font-size: 30px;
+  }
+
+  .descriptions {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .description {
+    margin: 30px;
+    font-size: 20px;
+    height: 170px;
+  }
+
+  .border-right {
+    border-left: 20px solid #370640;
+    border-right: 0;
+  }
+
+  .our-plans {
+    margin-top: 80px;
+    font-size: 40px;
+  }
+
+  .plans {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .plan {
+    margin: 10px;
+    font-size: 20px;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+  }
+
+  .plan-options {
+    min-height: 150px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cover {
+    padding-bottom: 200px;
+  }
+
+  .why-us {
+    font-size: 50px;
+  }
+
+  .header {
+    font-size: 100px;
+  }
+
+  .headline {
+    font-size: 35px;
+  }
+
+  .our-plans {
+    font-size: 50px;
+  }
+
+  .plan {
+    margin: 30px;
+    min-height: 300px;
+  }
+
+  .plan-options {
+    min-height: 125px;
+  }
 }

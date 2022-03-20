@@ -1,0 +1,154 @@
+.curved {
+  border-radius: 8px;
+}
+
+.one-line-card {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.one-line-card .number {
+  margin: 4px;
+}
+
+.three-line-card {
+  width: 100%;
+  padding: 80px 10px;
+  padding-bottom: 65px;
+  height: 159px;
+  justify-content: center;
+}
+
+.number {
+  font-size: 30px;
+}
+
+.currency {
+  font-size: 25px;
+}
+
+.second-group .three-line-card {
+  padding: 10px 10px;
+  height: 102px;
+}
+
+.half-line-card {
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.grid-column {
+  grid-column-gap: 10px;
+}
+
+.third-group {
+  height: 800px;
+  margin-bottom: 50px;
+}
+
+.chart {
+  height: 400px;
+  width: 98%;
+}
+
+.card {
+  border: 1px #b7b7b747 solid;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+.card .name-price {
+  width: 100%;
+  text-align: initial;
+}
+
+.products .img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.products .number {
+  font-size: 40px;
+}
+
+.profit-unit {
+  width: 210px;
+  height: 100px;
+  border-left: 1px #b7b7b747 solid;
+  border-radius: 6px;
+  padding-left: 12px;
+}
+
+.chartss {
+  flex-direction: column;
+  align-items: center;
+}
+
+.recharts-responsive-container {
+  width: 100% !important;
+}
+
+@media screen and (min-width: 900px) {
+  .first-two-groups {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .first-two-groups .first-group {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+
+  .first-two-groups .second-group {
+    flex-grow: 1;
+    margin-left: 10px;
+  }
+
+  .store-users {
+    margin-top: 0;
+  }
+
+  .first-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .second-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lazy-users {
+    order: 3;
+    margin-top: 0;
+  }
+
+  .top-products {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .chartss {
+    flex-direction: row;
+  }
+
+  .recharts-responsive-container {
+    width: 50% !important;
+  }
+
+  .third-group {
+    display: grid;
+    height: 400px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1610px) {
+  .first-three-groups {
+    flex-grow: 1;
+  }
+}
