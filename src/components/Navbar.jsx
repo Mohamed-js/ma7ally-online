@@ -3,10 +3,10 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 const Navbar = ({ loggedIn, setLoggedIn }) => {
   const history = useHistory();
-  const user = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const user = JSON.parse(sessionStorage.getItem('Ma7ally-Online-token'));
 
   const Logout = () => {
-    sessionStorage.removeItem('Ma7ally-token');
+    sessionStorage.removeItem('Ma7ally-Online-token');
     setLoggedIn(false);
     history.push('/login');
   };

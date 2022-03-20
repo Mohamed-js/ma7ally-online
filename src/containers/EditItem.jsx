@@ -6,11 +6,13 @@ const EditItem = () => {
   const itemId = useParams(':id');
   const history = useHistory();
   const [item, setItem] = useState();
-  const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const trader_token = JSON.parse(
+    sessionStorage.getItem('Ma7ally-Online-token')
+  );
 
   useEffect(() => {
     showItem(trader_token, itemId.id).then((item) => setItem(item));
-  }, []);
+  }, [itemId.id, trader_token]);
 
   const handleChange = (e) => {
     setItem({

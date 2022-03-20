@@ -5,10 +5,12 @@ import '../styles/orders.css';
 
 const Orders = () => {
   const [orders, setOrders] = useState();
-  const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const trader_token = JSON.parse(
+    sessionStorage.getItem('Ma7ally-Online-token')
+  );
   useEffect(() => {
     showTraderOrders(trader_token).then((orders) => setOrders(orders));
-  }, []);
+  }, [trader_token]);
 
   return (
     <div>
@@ -17,7 +19,6 @@ const Orders = () => {
       </div>
       <div>
         <div className="orders">
-          {orders && console.log(orders[0])}
           {orders &&
             orders.map((order) => {
               return (
@@ -30,8 +31,7 @@ const Orders = () => {
                       <div className="col address">{order.address}</div>
                       <div className="col phone">Phone</div>
                       <div className="col phone">{order.phone}</div>
-                      {/* <div className="col phone">Phone Alt</div>
-                      <div className="col phone">{order.phone2}</div> */}
+
                       <div className="col price">Total $</div>
                       <div className="col price">
                         {order.total}

@@ -6,7 +6,7 @@ const JoinUs = ({ setLoggedIn }) => {
   const history = useHistory();
   const [credits, setCredits] = useState();
   const [failure, setFailure] = useState();
-  const user = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const user = JSON.parse(sessionStorage.getItem('Ma7ally-Online-token'));
   if (user) {
     history.push('/');
   }
@@ -33,7 +33,7 @@ const JoinUs = ({ setLoggedIn }) => {
     if (respond.authentication_token) {
       setLoggedIn(true);
       sessionStorage.setItem(
-        'Ma7ally-token',
+        'Ma7ally-Online-token',
         JSON.stringify(respond.authentication_token)
       );
       history.push('/categories-select');

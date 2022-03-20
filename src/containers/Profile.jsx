@@ -5,11 +5,13 @@ import prof from '../images/prof.png';
 import Loader from 'react-loader-spinner';
 
 const Profile = () => {
-  const [trader, setTrader] = useState();
-  const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const [trader, setTrader] = useState(false);
+  const trader_token = JSON.parse(
+    sessionStorage.getItem('Ma7ally-Online-token')
+  );
 
   useEffect(async () => {
-    setTrader(await showTrader(trader_token).then((data) => data));
+    setTrader(await showTrader(trader_token));
   }, [trader_token]);
 
   const handleClick = (e) => {
@@ -34,18 +36,21 @@ const Profile = () => {
         <div className="flex-col align-center">
           <div className="text-center m-4">
             <h2>Welcome, </h2>
-            <h1>{trader.tradername}</h1>
+            {trader.tradername && <h1>{trader.tradername}</h1>}
           </div>
-          <h1 className="secondary header">{trader.storename.toUpperCase()}</h1>
+          {trader.storename && (
+            <h1 className="secondary header">
+              {trader.storename.toUpperCase()}
+            </h1>
+          )}
           <div className="profile-avatar m-4">
-            {trader.image_data && (
+            {(trader.image_data && (
               <img
                 className="full-img fit-cover"
                 src={trader.image_data}
                 alt="Profile"
               />
-            )}
-            {!trader.image_data && (
+            )) || (
               <img className="full-img fit-cover" src={prof} alt="Profile" />
             )}
           </div>
@@ -57,6 +62,7 @@ const Profile = () => {
             <div id="image-loader" hidden>
               <Loader type="Bars" color="#5e3d71" height={100} width={100} />
             </div>
+       
             <div id="upload" className="upload">
               <input
                 id="image"
@@ -68,11 +74,13 @@ const Profile = () => {
             <div className="text-center mt-3 flex-row align-center">
               <h3>You will find your store here: </h3>
               <hr />
-              <a
-                className="secondary ml-2"
-                href={`http://ma7ally.herokuapp.com/${trader.storename}`}>
-                {trader.storename.toUpperCase()}
-              </a>
+              {trader.storename && (
+                <a
+                  className="secondary ml-2"
+                  href={`http://ma7ally.herokuapp.com/${trader.storename}`}>
+                  {trader.storename.toUpperCase()}
+                </a>
+              )}
             </div>
           </div>
         </div>

@@ -7,7 +7,9 @@ const NewItem = () => {
   const [item, setItem] = useState();
   const [categories, setCategories] = useState();
   const [failure, setFailure] = useState();
-  const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const trader_token = JSON.parse(
+    sessionStorage.getItem('Ma7ally-Online-token')
+  );
 
   useEffect(() => {
     showTraderCategories(trader_token).then((categories) =>

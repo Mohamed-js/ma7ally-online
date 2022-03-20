@@ -15,10 +15,12 @@ const CategoriesSelect = () => {
   const [selectedItems, setSelectedItems] = useState([]);
   const [selectedItemsCount, setSelectedItemsCount] = useState(0);
 
-  const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const trader_token = JSON.parse(
+    sessionStorage.getItem('Ma7ally-Online-token')
+  );
 
-  useEffect(async () => {
-    setTrader(await showTrader(trader_token).then((data) => data));
+  useEffect(() => {
+    setTrader(showTrader(trader_token).then((data) => data));
     showCategoriesToSelect().then((cats) => setCats(cats));
   }, [trader_token]);
 
@@ -44,7 +46,7 @@ const CategoriesSelect = () => {
   const handleNext = (e) => {
     addTraderCategory(trader_token, selectedItems).then((res) => {
       if (res.message === 'Added successfully.') {
-        history.push('/dashboard');
+        history.push('/');
       }
     });
   };
@@ -78,7 +80,7 @@ const CategoriesSelect = () => {
           <div key={cat.id}>
             <br />
             <h2 className="text-center pt-3">{cat.name.toUpperCase()}</h2>
-            <div className="grid">
+            <div className="grid grid-4">
               {cat.categories.map((subcat) => (
                 <div
                   key={subcat.id}

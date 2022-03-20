@@ -1,30 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/statistics.css';
 import { showStatistics } from '../Helpers';
-import {
-  LineChart,
-  XAxis,
-  YAxis,
-  Legend,
-  Tooltip,
-  CartesianGrid,
-  Line,
-  BarChart,
-  Bar,
-  ResponsiveContainer,
-} from 'recharts';
-
 import TopProducts from '../components/TopPrpducts';
 import { useHistory } from 'react-router-dom';
 import MyResponsiveBar from '../components/Chart';
 import MyResponsivePie from '../components/Donut';
 
-const Statistics = ({}) => {
+const Statistics = () => {
   const history = useHistory();
-  const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const trader_token = JSON.parse(
+    sessionStorage.getItem('Ma7ally-Online-token')
+  );
   const [store, setStore] = useState();
-  const [data, setData] = useState();
-  const user = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const user = JSON.parse(sessionStorage.getItem('Ma7ally-Online-token'));
 
   if (!user) {
     history.push('/login');
@@ -33,14 +21,6 @@ const Statistics = ({}) => {
     showStatistics(trader_token).then((res) => {
       if (res.store) {
         setStore(res);
-        setData(
-          res.store.category_profit_pairs.map((pair) => {
-            return {
-              name: pair[0].toUpperCase(),
-              profit: pair[1] + '$',
-            };
-          })
-        );
       }
     });
   }, [trader_token]);

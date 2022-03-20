@@ -6,10 +6,12 @@ import '../styles/shop.css';
 
 const Shop = () => {
   const [items, setItems] = useState();
-  const trader_token = JSON.parse(sessionStorage.getItem('Ma7ally-token'));
+  const trader_token = JSON.parse(
+    sessionStorage.getItem('Ma7ally-Online-token')
+  );
   useEffect(() => {
     showTraderItems(trader_token).then((items) => setItems(items));
-  }, []);
+  }, [trader_token]);
   return (
     <div className="shop">
       <div className="advertise flex-row justify-between">
