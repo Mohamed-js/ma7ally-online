@@ -1,13 +1,11 @@
 # Ma7ally Online - Online shops for sellers!
 
-> This project is a single-page mobile web app built mainly with React.js. It is a service for people who want to sell online. It's based on my Ruby on Rails API;
+> This project is a single-page app built mainly with React.js. It is a service for people who want to sell online. It's consuming my Ruby on Rails API;
 
+<div align="center">
 
-<div align="center"> 
-
-![screenshot](./assets/screenshot1.png)
-![screenshot](./assets/screenshot2.png)
-
+![screenshot](./assets/ma7ally.png)
+![screenshot](./assets/ma7ally2.png)
 
 </div>
 
@@ -35,7 +33,6 @@
 - npm start
 ```
 
-
 ## Authors
 
 👤 **Mohammed Atef**
@@ -53,7 +50,6 @@ Contributions, issues, and feature requests are welcome!
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-
 
 ## 📝 License
 
